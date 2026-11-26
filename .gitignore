@@ -1,0 +1,19 @@
+# Database files
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# Uploaded photo evidence
+uploads/
+
+# Test temp files
+tests/tmp_run/
+tests/test_evidence.json
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
