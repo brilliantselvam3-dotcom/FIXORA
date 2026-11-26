@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIXORA</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Top Header -->
+    <header class="topbar" id="topbar" hidden>
+      <div class="topbar-left">
+        <div class="brand">
+          <span class="brand-mark">FX</span>
+          <div>
+            <div class="brand-title">FIXORA</div>
+            <div class="brand-sub">Lab &amp; Facility Operations</div>
+          </div>
+        </div>
+        <nav class="nav-tabs" id="nav-tabs"></nav>
+      </div>
+      <div class="topbar-right">
+        <div class="user-pill" id="user-pill"></div>
+        <button class="btn btn-ghost btn-sm" id="logout-btn" type="button">Sign Out</button>
+      </div>
+    </header>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+    <!-- Login View -->
+    <main id="login-view" class="login-shell">
+      <section class="login-split-card">
+        <!-- Left Form Panel -->
+        <div class="login-left">
+          <div class="login-form-wrap">
+            <div class="login-heading">
+              <h1>Welcome back</h1>
+              <p>Enter your details to access your account.</p>
+            </div>
+
+            <button type="button" id="toggle-demo-btn" class="sso-pill-btn">
+              <span class="sso-badge">FX</span>
+              <span>Quick Demo Sign-In (FIXORA Roles)</span>
+            </button>
+
+            <div id="demo-drawer" class="demo-drawer" hidden>
+              <div class="demo-drawer-title">Click any account to sign in immediately:</div>
+              <div class="demo-grid">
+                <button type="button" class="demo-btn" data-email="ananya@campus.edu" data-pass="reporter123">
+                  <span class="role-tag role-reporter">Reporter</span>
+                  <strong>Ananya Sharma</strong>
+                  <small>ananya@campus.edu</small>
+                </button>
+                <button type="button" class="demo-btn" data-email="rohan@campus.edu" data-pass="reporter123">
+                  <span class="role-tag role-reporter">Reporter</span>
+                  <strong>Rohan Nair</strong>
+                  <small>rohan@campus.edu</small>
+                </button>
+                <button type="button" class="demo-btn" data-email="karthik@campus.edu" data-pass="tech123">
+                  <span class="role-tag role-technician">Technician</span>
+                  <strong>Karthik Raj</strong>
+                  <small>karthik@campus.edu</small>
+                </button>
+                <button type="button" class="demo-btn" data-email="meera@campus.edu" data-pass="tech123">
+                  <span class="role-tag role-technician">Technician</span>
+                  <strong>Meera Menon</strong>
+                  <small>meera@campus.edu</small>
+                </button>
+                <button type="button" class="demo-btn" data-email="admin@campus.edu" data-pass="admin123">
+                  <span class="role-tag role-admin">Admin</span>
+                  <strong>Dr. Priya Kumar</strong>
+                  <small>admin@campus.edu</small>
+                </button>
+                <button type="button" class="demo-btn" data-email="admin2@campus.edu" data-pass="admin123">
+                  <span class="role-tag role-admin">Admin</span>
+                  <strong>Vikram Rao</strong>
+                  <small>admin2@campus.edu</small>
+                </button>
+              </div>
+            </div>
+
+            <div class="login-divider"><span>or</span></div>
+
+            <form id="login-form" class="stack-md">
+              <div class="pill-field">
+                <label for="login-email">Email</label>
+                <input id="login-email" type="email" placeholder="Enter your email" required autocomplete="username" />
+              </div>
+
+              <div class="pill-field">
+                <label for="login-password">Password</label>
+                <div class="password-input-wrap">
+                  <input id="login-password" type="password" placeholder="Enter your password" required autocomplete="current-password" />
+                  <button type="button" id="toggle-password-vis" class="eye-btn" aria-label="Show or hide password" title="Toggle password visibility">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="login-options-row">
+                <label class="remember-label">
+                  <input type="checkbox" id="remember-me" checked />
+                  <span>Remember me</span>
+                </label>
+                <button type="button" id="show-creds-link" class="text-link-btn">View demo credentials</button>
+              </div>
+
+              <div id="login-error" class="alert alert-error" hidden></div>
+              <button type="submit" class="btn-indigo-pill">Sign in</button>
+            </form>
+
+            <div class="login-bottom-note">
+              Need instant role access? <button type="button" id="bottom-demo-link" class="text-link-btn bold">Use a demo account</button>
+            </div>
+          </div>
+
+          <div class="login-copyright">&copy; 2026 FIXORA. All rights reserved.</div>
+        </div>
+
+        <!-- Right Visual Showcase Panel -->
+        <div class="login-right">
+          <div class="hero-brand">
+            <span class="hero-brand-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L14.8 8.5L21.5 9.3L16.5 13.9L17.9 20.5L12 17.1L6.1 20.5L7.5 13.9L2.5 9.3L9.2 8.5L12 2Z" />
+              </svg>
+            </span>
+            <span>FIXORA</span>
+          </div>
+
+          <div class="hero-copy">
+            <h2>Effortless Issue Tracking with FIXORA</h2>
+            <p>Stay ahead with real-time ticket visibility, duplicate alerts, technician dispatch, and SLA resolution analytics. All in one powerful dashboard.</p>
+          </div>
+
+          <!-- Embedded Dashboard Preview Card -->
+          <div class="preview-frame" aria-hidden="true">
+            <div class="preview-sidebar">
+              <div class="preview-logo">FIXORA</div>
+              <div class="preview-nav-item active">Dashboard</div>
+              <div class="preview-nav-item">All Tickets</div>
+              <div class="preview-nav-item">Lab Queue</div>
+              <div class="preview-nav-item">Analytics</div>
+              <div class="preview-nav-item">Technicians</div>
+            </div>
+            <div class="preview-main">
+              <div class="preview-topbar">
+                <div>
+                  <div class="preview-greet">Welcome back</div>
+                  <div class="preview-sub">Real-time FIXORA ops overview</div>
+                </div>
+                <div class="preview-avatar">PK</div>
+              </div>
+
+              <div class="preview-kpis">
+                <div class="preview-kpi dark">
+                  <span>Open Tickets</span>
+                  <strong>2</strong>
+                  <small>Awaiting dispatch</small>
+                </div>
+                <div class="preview-kpi">
+                  <span>Active Queue</span>
+                  <strong>4</strong>
+                  <small>In progress</small>
+                </div>
+                <div class="preview-kpi">
+                  <span>Avg Resolution</span>
+                  <strong>1h 20m</strong>
+                  <small>-14% vs last wk</small>
+                </div>
+                <div class="preview-kpi">
+                  <span>SLA Met</span>
+                  <strong>96.4%</strong>
+                  <small>On-time closure</small>
+                </div>
+              </div>
+
+              <div class="preview-charts-row">
+                <div class="preview-box">
+                  <div class="preview-box-title">Ticket Volume</div>
+                  <div class="mini-bars">
+                    <div class="mini-bar-col"><span style="height:58%"></span><span class="alt" style="height:35%"></span></div>
+                    <div class="mini-bar-col"><span style="height:82%"></span><span class="alt" style="height:48%"></span></div>
+                    <div class="mini-bar-col"><span style="height:46%"></span><span class="alt" style="height:28%"></span></div>
+                    <div class="mini-bar-col"><span style="height:74%"></span><span class="alt" style="height:42%"></span></div>
+                    <div class="mini-bar-col"><span style="height:90%"></span><span class="alt" style="height:64%"></span></div>
+                    <div class="mini-bar-col"><span style="height:68%"></span><span class="alt" style="height:50%"></span></div>
+                  </div>
+                </div>
+                <div class="preview-box">
+                  <div class="preview-box-title">Status Split</div>
+                  <div class="mini-donut-wrap">
+                    <div class="mini-donut"></div>
+                    <div class="mini-legend">
+                      <div><i style="background:#4f46e5"></i>Open</div>
+                      <div><i style="background:#0ea5e9"></i>Assigned</div>
+                      <div><i style="background:#f59e0b"></i>Resolved</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="preview-bottom-row">
+                <div class="preview-box">
+                  <div class="preview-box-title">Recent Tickets</div>
+                  <div class="mini-table-row"><span>TKT-101 · PC-12</span><em class="pill-warn">Open</em></div>
+                  <div class="mini-table-row"><span>TKT-102 · WS-04</span><em class="pill-info">Assigned</em></div>
+                  <div class="mini-table-row"><span>TKT-104 · Library</span><em class="pill-ok">Resolved</em></div>
+                </div>
+                <div class="preview-box">
+                  <div class="preview-box-title">Resolution Trend</div>
+                  <svg viewBox="0 0 120 42" class="mini-spark">
+                    <polyline fill="none" stroke="#4f46e5" stroke-width="2" points="4,32 24,24 44,28 66,14 88,18 114,8" />
+                    <polyline fill="none" stroke="#f59e0b" stroke-width="2" points="4,36 24,30 44,33 66,22 88,26 114,17" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Main Workspace -->
+    <main id="workspace-view" class="workspace" hidden>
+      <!-- Dynamic Page Content -->
+      <section id="view-content"></section>
+    </main>
+
+    <!-- Ticket Detail Modal / Drawer -->
+    <div id="ticket-modal" class="modal-backdrop" hidden>
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-header">
+          <div>
+            <div class="modal-kicker" id="modal-kicker"></div>
+            <h2 id="modal-title"></h2>
+          </div>
+          <button type="button" class="btn btn-ghost btn-sm" id="modal-close" aria-label="Close details">&times; Close</button>
+        </div>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
