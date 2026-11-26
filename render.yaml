@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: fixora
+    runtime: ruby
+    buildCommand: gem install bundler --quiet || true
+    startCommand: ruby server.rb
+    plan: free
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: RACK_ENV
+        value: production
